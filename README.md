@@ -1,0 +1,2 @@
+# DjangoTranslationWebsite
+ISD-Uni Liechtenstein
