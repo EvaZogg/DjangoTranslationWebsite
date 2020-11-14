@@ -7,7 +7,7 @@ This Project is devloped for the course Information Systems Development at the U
 
 ---
 
-##Contributors
+## Contributors
 
 -Eva Zogg
 -Manuel J. Weber
@@ -15,7 +15,7 @@ This Project is devloped for the course Information Systems Development at the U
 
 ---
 
-##License & Copyright
+## License & Copyright
 
 © Eva Zogg/ Manuel J. Weber/ Maximilian G. Pabst, Universität Liechtenstein Information Systems
 
