@@ -6,14 +6,19 @@
 ## Table of contents
 
 * [Project Discription](#project-discription)
+* [Features](#Features)
 * [Contributors](#Contributors)
-* [License and Copyright](#License and Copyright)
+* [License and Copyright](#License-and-Copyright)
 * [Technologies](#Technologies)
 
 ## Project Discription
 This Project is devloped for the course Information Systems Development at the University of Liechtenstein. The goal of the project is that the team members laern basic programming skills in Python, know how to collaborate on an project using Git, create a complete documentation and collect & define the project Requirements from the customer.
 
 ---
+
+## Features
+  *Profildarstellung
+  *Kontaktformular
 
 ## Contributors
 
