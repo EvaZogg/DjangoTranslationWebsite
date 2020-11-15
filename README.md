@@ -17,8 +17,8 @@ This Project is devloped for the course Information Systems Development at the U
 ---
 
 ## Features
-  *Profildarstellung
-  *Kontaktformular
+  * Profildarstellung
+  * Kontaktformular
 
 ## Contributors
 
