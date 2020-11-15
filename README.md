@@ -7,7 +7,7 @@
 
 * [Project Discription](#project-discription)
 * [Contributors](#Contributors)
-* [License & Copyright](#License & Copyright)
+* [License and Copyright](#License and Copyright)
 * [Technologies](#Technologies)
 
 ## Project Discription
