@@ -22,9 +22,9 @@ This Project is devloped for the course Information Systems Development at the U
 ---
 
 ## Technologies
-..*Python 3.9.0
-..*PHP
-..*Django 3.1.3
+..* Python 3.9.0
+..* PHP
+..* Django 3.1.3
 
 
 
