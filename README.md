@@ -8,6 +8,7 @@ This Project is devloped for the course Information Systems Development at the U
 ---
 
 ## Contributors
+
   *Eva Zogg <Eva.Zogg@uni.li>
   *Manuel J. Weber <Manuel.J.Weber@uni.li>
   *Maximilian G. Pabst <maximilian.pabst@uni.li>
