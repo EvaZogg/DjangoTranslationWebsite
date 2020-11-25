@@ -5,9 +5,11 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @login_required
+
 def index(request):
   return render(request, 'contact/index.html')
 
+@login_required
 def create(request):
   if (request.method == 'POST'):
     name = request.POST.get('name')
