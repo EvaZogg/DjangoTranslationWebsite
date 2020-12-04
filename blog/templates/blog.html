@@ -1,9 +1,11 @@
-<h1>Blog</h1>
+{% include "base.html" %}
 
-{{ name }}
-<br>
-{{ name }}
-
-{% for item in testlist %}
-    {{ item }} <br>
-{% endfor %}
+{% block blogPost %}
+    <h1>{{ Title }}</h1>
+{% endblock %}
+<br><br>
+{% block blogPost2 %}
+    {%for obj in blogdata%}
+        <h2>{{ obj.title }}</h2> <br> {{ obj.Blogtext}} <br> {{ obj.Date }} <br> {{ obj.Comment }}<br><br><br>
+    {% endfor %}
+{% endblock %}
