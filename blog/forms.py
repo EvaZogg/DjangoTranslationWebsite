@@ -4,13 +4,10 @@ from django import forms
 
 class blogentry(forms.Form):
     Comment=forms.CharField(
-        required=False,
-        label='new label',
         widget=forms.Textarea(attrs={
-        'class' : 'my-new-cass',
-        'id' : 'my-id-field',
-        'placeholder' : 'Please enter your comment here. (reminder: comments shall respect the comment guidlines.)',
-        'rows' : 20,
-        'cols' : 70
-    }
-))
+            'placeholder':'Sie können Ihren Kommentar hier hinterlassen',
+            'rows':10,
+            'cols':70,
+        }
+        ))
+"""I still need to adjust the attributes, because for some reason it does not adjust the textfield to 10 and 70"""

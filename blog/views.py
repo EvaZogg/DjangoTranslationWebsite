@@ -3,6 +3,11 @@ from django.http import HttpResponse
 from django.views.generic import View, TemplateView
 from .models import blog #benötigtes Model importieren
 from .forms import blogentry
+
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
+
 #The following was just a test
 #def blog_view(httprequest, *args):
     #test_dict = {
@@ -20,18 +25,16 @@ def blog_view(httprequest, *args, **kwargs): #create function called blog_view/ 
     }
     return render(httprequest, "blog.html", context)
 
-def blog_view2(httprequest, *args, **kwargs):
-    oneblog = blog.objects.get(id=1)
-    context = {
-        "obj":oneblog,
-        "Title":"Latest Blogpost"
-    }
-    return render(httprequest, "blog_view2.html", context)
 
 def createblogentry(httprequest, *args, **kwargs):
-    my_form = blogentry() #link to the form, which was imported before
+    my_form = blogentry(httprequest.POST or None)
+
+    if my_form.is_valid():
+        blog.objects.create(**my_form.cleaned_data)
+        my_form=blogentry()
+
     context = {
-        "my_form" : my_form
+        "form" : my_form
     }
-    return render(httprequest,
-                  "createblogentry_view.html.html", context)
+    return render(httprequest, "createblogentry_view.html", context)
+

@@ -1,0 +1,12 @@
+
+
+{% block content %}
+
+    <form action="." method='post'>{% csrf_token %}
+        {{ form.as_p }}
+        <label for="Comment">Kommentar: </label> <br>
+        <input id="Comment" type="text" name="Comment" value="{{ make_comment }}">
+        <input type="submit" name="comment">
+    </form>
+
+{% endblock %}
