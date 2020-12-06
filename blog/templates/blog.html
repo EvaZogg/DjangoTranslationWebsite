@@ -1,12 +1,13 @@
 {% include "base.html" %}
 
+
 {% block blogPost %}
     <h1>{{ Title }}</h1>
 {% endblock %}
 <br><br>
 {% block blogPost2 %}
     {%for obj in blogdata%}
-        <h2>{{ obj.title }}</h2> <br> {{ obj.Blogtext}} <br> {{ obj.Date }} <br><br> {{ obj.Comment }}<br><br>
+        <h2>{{ obj.title }}</h2> <br> {{ obj.Blogtext}} <br> {{ obj.Date }} <br><br> <em>{{ obj.Comment }}</em><br><br>
 
         {% include "createblogentry_view.html" %}
 

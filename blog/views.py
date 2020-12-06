@@ -26,15 +26,29 @@ def blog_view(httprequest, *args, **kwargs): #create function called blog_view/ 
     return render(httprequest, "blog.html", context)
 
 
-def createblogentry(httprequest, *args, **kwargs):
-    my_form = blogentry(httprequest.POST or None)
+"""def createblogentry(request):
+    obj = blog.objects.get(id=1) #which specific object shall be opened
+    my_form = blogentry(httprequest.POST or None, instance=obj) #opens the instance of the object
 
     if my_form.is_valid():
-        blog.objects.create(**my_form.cleaned_data)
+        my_form.save()
         my_form=blogentry()
 
     context = {
         "form" : my_form
     }
-    return render(httprequest, "createblogentry_view.html", context)
+    return render(httprequest, "createblogentry_view.html", context)"""
+
+def createblogentry(request):
+    x=1
+    obj = blog.objects.get(id=x)
+    my_form = blogentry(request.POST or None, instance=obj)
+    if my_form.is_valid():
+        my_form.save()
+        my_form=blogentry()
+
+    context = {
+        "form" : my_form
+    }
+    return render(request, "createblogentry_view.html", context)
 
