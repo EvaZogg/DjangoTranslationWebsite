@@ -39,5 +39,5 @@ This Project is devloped for the course Information Systems Development at the U
   * PHP
   * Django 3.1.3
 
-
+This is just a test if the IDE and GitHub work well together.
 
