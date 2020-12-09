@@ -19,12 +19,22 @@
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/accounts/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/accounts/logout">Logout</a>
-          </li>
+
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+            {% comment %}if user is authenticated (logged in) it is shown with its username, which is a link to its profile data.
+              the url contains the primary key (pk) of the user{% endcomment %}
+                <a class="nav-link" href="{% url 'updateUser' pk=user.id %}">{{ user.get_username }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login</a>
+            </li>
+          {% endif %}
+
         </ul>
       </div>
     </nav>

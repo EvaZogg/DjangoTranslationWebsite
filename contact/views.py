@@ -4,18 +4,27 @@ from contact.models import Contact
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required
 
+# The URL <hostname:8000>/contact/ calls this function.
+# This function displays the empty contact form using the template "contact/index.html".
+# The user must be logged in. If not, the login form is displayed before.
+@login_required
 def index(request):
   return render(request, 'contact/index.html')
 
+# After pressing the submit button the filled out form data will be
+# sent to the server with the URL <hostname:8000>/contact/create as a post request.
 @login_required
 def create(request):
-  if (request.method == 'POST'):
+  if (request.method == 'POST'): # always true, could be omitted
+    # Extract each filled out data item from request and assign it to variables "name, email, ..".
     name = request.POST.get('name')
     email = request.POST.get('email')
     desc = request.POST.get('description')
     translationText = request.POST.get('translationText')
+    # Creates an object/instance of class Contact and assigns it to the variable "contact".
     contact = Contact(name=name, email=email, desc=desc, translationText=translationText, date=datetime.today())
+    # Method call "save" stores the data persistently in database table "Contact".
     contact.save()
+  # Finally a conformation page will be displayed.
   return render(request, 'contact/confirm.html')

@@ -30,12 +30,13 @@
                   {{ form.password.label_tag }}
                   {{ form.password }}
                 </div>
-                  <input type="submit" value="Login"/>
+                  <input class="btn btn-primary" type="submit" value="Login"/>
                   <input type="hidden" name="next" value="{{ next }}" />
             </form>
             {# Assumes you setup the password_reset view in your URLconf #}
             <p></p>
             <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+            <p><a href="{% url 'signup' %}">New user? Register here.</a></p>
         </div>
     </div>
 </div>

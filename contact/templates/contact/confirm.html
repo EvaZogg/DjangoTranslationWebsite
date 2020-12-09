@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% block content %}
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<div class="text-center">
+    <h1 class="my-5">Confirmation</h1>
+    <!--
+    variable "user.first_name" will be replaced by field value "first_name" of logged in object "user"
+    -->
+    <p> Dear {{ user.first_name }}, thank you for your request!</p>
 
-  <title>Confirmation</title>
-</head>
+</div>
 
-<body>
-Thank you for your request!
-</body>
-</html>
+{% endblock %}
