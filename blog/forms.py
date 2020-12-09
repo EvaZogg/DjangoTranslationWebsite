@@ -7,9 +7,13 @@ class blogentry(forms.ModelForm):
     Comment = forms.CharField(label="Ihr Kommentar",
                               widget=forms.TextInput(attrs={"placeholder":"max. 250 Zeichen"}))
 
+
+
     class Meta:
         model=blog
         fields=['Comment']
+
+
 
 """class blogentry(forms.Form):
     Comment=forms.CharField(

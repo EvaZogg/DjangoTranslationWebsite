@@ -6,12 +6,44 @@
 {% endblock %}
 <br><br>
 {% block blogPost2 %}
+    <div class="row row-cols-1 row-cols-md-1">
+
     {%for obj in blogdata%}
-        <h2>{{ obj.title }}</h2> <br> {{ obj.Blogtext}} <br> {{ obj.Date }} <br><br> <em>{{ obj.Comment }}</em><br><br>
+
+        <div class="col mb-4" style="max-width: 900px;">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ obj.title }}</h5>
+                    <p class="card-text">{{ obj.Blogtext}} <br>
+                        {{ obj.Blogtext}} <br> <br>{{ obj.Date }} <br><br> Kommentar: <em><br>{{ obj.Comment }} </em>
+                        <form action="/blog/" method="post" >
+
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="hidden" name="title" value="{{ obj.title }}">
+                        <input type="hidden" name="date" value="{{ obj.Date }}">
+
+
+
+                        <input type="submit" value="Submit">
+                        </form>
+                        </>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
 
         {% include "createblogentry_view.html" %}
+        <a href="{{ createblogentry_view.html }}">{{ title }}</a>
 
 
+
+    </div>
 <br><br>
     {% endfor %}
+
 {% endblock %}
