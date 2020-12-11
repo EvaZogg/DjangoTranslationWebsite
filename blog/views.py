@@ -71,5 +71,3 @@ def createblogentry(request):
     }
     #return render(request, "createblogentry_view.html", context)
     return {"hallo":x}"""
-
-

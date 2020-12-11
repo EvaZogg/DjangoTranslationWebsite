@@ -38,6 +38,7 @@ This Project is devloped for the course Information Systems Development at the U
   * Python 3.9.0
   * PHP
   * Django 3.1.3
+  * Pillow 8.0.1
 
 This is just a test if the IDE and GitHub work well together.
 

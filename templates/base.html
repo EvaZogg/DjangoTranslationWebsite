@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Home</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #FFFFFF;">
@@ -31,7 +33,20 @@
         </ul>
       </div>
     </nav>
-     {% block content %}
-     {% endblock %}
+
+
+    <div id='container'>
+        <div id='content'>
+            <p>
+                {% block content %} {# Tag, which is replaced with content #}
+                {% endblock %}
+            </p>
+        </div>
+    </div>
+
+    <footer id='footer'>
+
+    </footer>
+
 </body>
 </html>

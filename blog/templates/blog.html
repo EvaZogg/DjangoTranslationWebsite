@@ -1,6 +1,6 @@
 {% include "base.html" %}
-
-
+<title>Blog</title>
+{% block content %}
 {% block blogPost %}
     <h1>{{ Title }}</h1>
 {% endblock %}
@@ -11,11 +11,14 @@
     {%for obj in blogdata%}
 
         <div class="col mb-4" style="max-width: 900px;">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+            <div class
+
                 <div class="card-body">
                     <h5 class="card-title">{{ obj.title }}</h5>
-                    <p class="card-text">{{ obj.Blogtext}} <br>
+
+                    <img src="{{ obj.Image.url }}" alt="{{ text }}" width="500px">
+                    <br>
+                    <p> {{ obj.Blogtext}} <br>
                         {{ obj.Blogtext}} <br> <br>{{ obj.Date }} <br><br> Kommentar: <em><br>{{ obj.Comment }} </em>
                         <form action="/blog/" method="post" >
 
@@ -28,7 +31,7 @@
 
                         <input type="submit" value="Submit">
                         </form>
-                        </>
+
                     </p>
                 </div>
             </div>
@@ -41,9 +44,10 @@
         <a href="{{ createblogentry_view.html }}">{{ title }}</a>
 
 
-
     </div>
+
 <br><br>
     {% endfor %}
 
+{% endblock %}
 {% endblock %}
