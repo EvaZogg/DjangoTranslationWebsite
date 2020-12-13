@@ -1,5 +1,6 @@
-{% include "base.html" %}
+{% extends "base.html" %}
 <title>Blog</title>
+{% block container %}
 {% block content %}
 {% block blogPost %}
     <h1>{{ Title }}</h1>
@@ -40,14 +41,17 @@
 
 
 
+
         {% include "createblogentry_view.html" %}
         <a href="{{ createblogentry_view.html }}">{{ title }}</a>
 
 
     </div>
 
+
 <br><br>
     {% endfor %}
 
+{% endblock %}
 {% endblock %}
 {% endblock %}
