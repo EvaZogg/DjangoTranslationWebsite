@@ -1,5 +1,11 @@
-{% extends 'base.html' %}
+{% include 'base.html' %}
 
-{% block content %}
-  <h1>Home</h1>
+{% block container %}
+    {% block content %}
+        <h1>Home</h1>
+    {% endblock %}
+{% endblock %}
+
+{% block footer %}
+    <h2>This is the Home Footer</h2>
 {% endblock %}
