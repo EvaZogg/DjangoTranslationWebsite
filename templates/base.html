@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+
     <link rel="stylesheet" type="text/css" href="style.css">
-    
+
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #FFFFFF;">
@@ -22,13 +22,13 @@
             <a class="nav-link" href="/contact">Contact</a>
           </li>
 
-          {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
             <li class="nav-item">
             {% comment %}if user is authenticated (logged in) it is shown with its username, which is a link to its profile data.
               the url contains the primary key (pk) of the user{% endcomment %}
                 <a class="nav-link" href="{% url 'updateUser' pk=user.id %}">{{ user.get_username }}</a>
             </li>
-            <li class="nav-item">
+           <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
             </li>
           {% else %}
@@ -56,4 +56,4 @@
     </footer>
 
 </body>
-</html>
+</html>ö
