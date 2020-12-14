@@ -25,3 +25,9 @@ html, body {
     margin-top: -100px;
     clear: both;
 }
+
+/*footer*/
+
+.footer{
+    background: aqua;
+}

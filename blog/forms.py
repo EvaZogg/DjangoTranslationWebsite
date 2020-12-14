@@ -3,9 +3,10 @@ the form is quite similar to a model but there is no argument"""
 from django import forms
 from .models import blog
 
-class blogentry(forms.ModelForm):
-    Comment = forms.CharField(label="Ihr Kommentar",
-                              widget=forms.TextInput(attrs={"placeholder":"max. 250 Zeichen"}))
+class comment(forms.ModelForm):
+    Comment = forms.CharField(max_length=250,
+                              label="Ihr Kommentar",
+                              widget=forms.TextInput(attrs={'style': 'width:800px', 'placeholder':'max. 250 Zeichen'})) #widget as a HTML representation of Input Field
 
 
 
