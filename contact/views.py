@@ -17,13 +17,13 @@ def index(request):
 @login_required
 def create(request):
   if (request.method == 'POST'): # always true, could be omitted
-    # Extract each filled out data item from request and assign it to variables "name, email, ..".
-    name = request.POST.get('name')
-    email = request.POST.get('email')
+    # Extract each filled out data item from request and assign it to variables "desc, translationText".
     desc = request.POST.get('description')
     translationText = request.POST.get('translationText')
+    # file = request.FILES.get('inputfile')
     # Creates an object/instance of class Contact and assigns it to the variable "contact".
-    contact = Contact(name=name, email=email, desc=desc, translationText=translationText, date=datetime.today())
+    # "user=request.user" assigns logged in User (request.user) to field "user" in model "Contact"
+    contact = Contact(desc=desc, translationText=translationText, date=datetime.today(), user=request.user)
     # Method call "save" stores the data persistently in database table "Contact".
     contact.save()
   # Finally a conformation page will be displayed.
