@@ -1,3 +1,4 @@
+from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render
 from datetime import datetime
 from contact.models import Contact
@@ -20,11 +21,17 @@ def create(request):
     # Extract each filled out data item from request and assign it to variables "desc, translationText".
     desc = request.POST.get('description')
     translationText = request.POST.get('translationText')
-    # file = request.FILES.get('inputfile')
-    # Creates an object/instance of class Contact and assigns it to the variable "contact".
-    # "user=request.user" assigns logged in User (request.user) to field "user" in model "Contact"
-    contact = Contact(desc=desc, translationText=translationText, date=datetime.today(), user=request.user)
-    # Method call "save" stores the data persistently in database table "Contact".
-    contact.save()
-  # Finally a conformation page will be displayed.
-  return render(request, 'contact/confirm.html')
+    if (request.FILES['myfile']): # Request contains a file
+      myfile = request.FILES['myfile'] # Extract submitted file from request
+      fs = FileSystemStorage() # Open FileSystem
+      filename = fs.save(myfile.name, myfile) # Save file in FileSystem
+      contact = Contact(file=myfile, desc=desc, translationText=translationText, date=datetime.today(), user=request.user)
+      contact.save()
+    else:
+      # Creates an object/instance of class Contact and assigns it to the variable "contact".
+      # "user=request.user" assigns logged in User (request.user) to field "user" in model "Contact"
+      contact = Contact(desc=desc, translationText=translationText, date=datetime.today(), user=request.user)
+      # Method call "save" stores the data persistently in database table "Contact".
+      contact.save()
+    # Finally a conformation page will be displayed.
+    return render(request, 'contact/confirm.html')
