@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
-from blog.views import blog_view, createblogentry
+from blog.views import blog_view, createcomment
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -30,7 +30,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('blog/', blog_view),
-    path('comment/', createblogentry),
+    path('comment/', createcomment),
 ]
 
 if settings.DEBUG:
