@@ -1,57 +1,49 @@
 {% extends "base.html" %}
 <title>Blog</title>
-{% block container %}
-{% block content %}
-{% block blogPost %}
-    <h1>{{ Title }}</h1>
-{% endblock %}
-<br><br>
-{% block blogPost2 %}
-    <div class="row row-cols-1 row-cols-md-1">
+    {% block content %}
+        <h1>{{ Title }}</h1>
+        <br>
+        <div class="content">
+            <div class="row row-cols-1 row-cols-md-1">
 
-    {%for obj in blogdata%}
+            {%for obj in blogdata%}
 
-        <div class="col mb-4" style="max-width: 900px;">
-            <div class
+                <div class="col mb-4" style="max-width: 900px;">
+                    <div class
 
-                <div class="card-body">
-                    <h5 class="card-title">{{ obj.title }}</h5>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ obj.title }}</h4>
 
-                    <img src="{{ obj.Image.url }}" alt="{{ text }}" width="500px">
-                    <br>
-                    <p> {{ obj.Blogtext}} <br>
-                        {{ obj.Blogtext}} <br> <br>{{ obj.Date }} <br><br> Kommentar: <em><br>{{ obj.Comment }} </em>
-                        <form action="/blog/" method="post" >
+                            <img src="{{ obj.Image.url }}" alt="{{ text }}" width="500px">
+                            <br>
+                            <p> {{ obj.Blogtext}} <br>
+                                {{ obj.Blogtext}} <br> <br>{{ obj.Date }} <br><br> Kommentar: <em><br>{{ obj.Comment }} </em>
+                                <form action="/blog/" method="post" >
 
-                        {% csrf_token %}
-                        {{ form }}
-                        <input type="hidden" name="title" value="{{ obj.title }}">
-                        <input type="hidden" name="date" value="{{ obj.Date }}">
+                                {% csrf_token %}
+                                {{ form }}
+                                <input type="hidden" name="title" value="{{ obj.title }}">
+                                <input type="hidden" name="date" value="{{ obj.Date }}">
 
+                                <input type="submit" value="Submit">
+                                </form>
 
-
-                        <input type="submit" value="Submit">
-                        </form>
-
-                    </p>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            {% include "createcomment_view.html" %}
+            <a href="{{ createcomment_view.html }}">{{ title }}</a>
+
+
         </div>
 
 
+    <br><br>
+        {% endfor %}
 
 
+    {% endblock %}
 
-        {% include "createblogentry_view.html" %}
-        <a href="{{ createblogentry_view.html }}">{{ title }}</a>
-
-
-    </div>
-
-
-<br><br>
-    {% endfor %}
-
-{% endblock %}
-{% endblock %}
-{% endblock %}

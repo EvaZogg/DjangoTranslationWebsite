@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import View, TemplateView
 from .models import blog  # benötigtes Model importieren
-from .forms import blogentry
+from .forms import comment
 from django import template
 
 register = template.Library()
@@ -26,39 +26,39 @@ def blog_view(httprequest, *args, **kwargs):  # create function called blog_view
     context = {
         "blogdata": blogdata,  # Dictionary beeing created with the name blogdata
         "Title": "Blogposts related to technical Translation",
-        'form': blogentry()
+        'form': comment()
 
     }
 
     if httprequest.method == "POST":
-        createblogentry(httprequest) #if so. write we open createblogentry, rename!!
+        createcomment(httprequest)
         #return render(httprequest, "blog.html", context)
 
 
     return render(httprequest, "blog.html", context)
 
 
-def createblogentry(request):
+def createcomment(request):
 
     title = request.POST["title"]
     #date = request.POST["date"]
     obj = blog.objects.get(title=title) #which specific object shall be opened
-    my_form = blogentry(request.POST, instance=obj)
+    my_form = comment(request.POST, instance=obj)
     #print(my_form)#opens the instance of the object
 
     if my_form.is_valid():
         my_form.save()
-        my_form = blogentry()
+        my_form = comment()
 
     else:
-        my_form = blogentry()
+        my_form = comment()
     context = {
         "form" : my_form,
     }
     return render(request, "blog.html", context)
 
 """@register.inclusion_tag("blog.html")
-def createblogentry(request):
+def createcomment(request):
     x=1
     obj = blog.objects.get(id=x)
     my_form = blogentry(request.POST or None, instance=obj)
@@ -69,5 +69,5 @@ def createblogentry(request):
     context = {
         "form" : my_form
     }
-    #return render(request, "createblogentry_view.html", context)
+    #return render(request, "createcomment_view.html", context)
     return {"hallo":x}"""
