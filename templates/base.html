@@ -8,6 +8,7 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
+
     <style>.footer{
         background-color: #027b76;
         position: relative;
@@ -19,8 +20,7 @@
     </style>
 
     <style>.footer-bottom{
-        background-color: darkslategrey;
-        color: black;
+        background-color: #027b76;
         height: 30px;
         text-align: center;
         position: absolute;
@@ -28,35 +28,44 @@
         left: 0px;
         padding-top: 0px;
         width: 100%;
+
     }
     </style>
 
     <style>.footer-content{
-        border: 1px solid red;
+        border: 1px;
         height: 150px;
         display: flex;
+
 
     }
     </style>
 
     <style>.footer-section-about{
         flex: 1;
-        border: 1px solid green;
+        border: 1px;
         padding: 25px;
+        text-align: center;
+        color: white;
+
     }
     </style>
 
     <style>.footer-section-link{
         flex: 1;
-        border: 1px solid green;
+        border: 1px;
         padding: 25px;
+        text-align: center;
+        color: white;
     }
     </style>
 
     <style>.footer-section-contact-form{
         flex: 1;
-        border: 1px solid green;
+        border: 1px;
         padding: 25px;
+        text-align: center;
+        color: white;
     }
     </style>
 
@@ -123,19 +132,42 @@
     <div class='footer'>
         <div class="footer-content">
             <div class="footer-section-about">
-                <h6 class="logo-text"><span>Translation</span> Service</h6>
-                <p>Wir erstellen Ihnen gerne innerhalb von 24h ein Angebot für die Übersetzung ihres Textes.
-                Hierfür nutzen Sie gerne Kontaktformular.</p>
+                <h5> <span>Translation</span> Service</h5>
+                <p>We will be happy to provide you with a quote for the translation of your text within 24 hours.
+                For this purpose please use the contact form.</p>
                 <div class="social">
                     <a href='#'><i class='fab fa-facebook'></i>></a>
                     <a href='#'><i class='fab fa-instagram'></i>></a>
                     <a href='#'><i class='fab fa-twitter'></i>></a>
                 </div>
             </div>
-            <div class="footer-section-link"></div>
-            <div class="footer-section-contact-form"></div>
+            <div class="footer-section-link">
+                <h5>Quick Link</h5>
+                <ul>
+                <a href="/home">
+                    <li>Home</li>
+                </a>
+                <a href="/contact">
+                    <li>Contact</li>
+                </a>
+                <a href={% url 'login'%}?next={{request.path}}">
+                    <li>Login</li>
+                </a>
+                <a href="/blog">
+                    <li>Blog</li>
+                </a>
+                </ul>
+            </div>
+            <div class="footer-section-contact-form"><h5>Contact Me</h5>
+                <ul>
+                For general question contact me:
+                <br>
+                +49 157 76398763
+                <br>
+                Maximilian.Pabst@uni.li
+            </div>
         </div>
-
+<bl></bl>
         <div class='footer-bottom'>
             &copy; Translation Service | Designed by Eva Zogg & Maximilian Pabst
         </div>
@@ -143,3 +175,4 @@
 
 </body>
 </html>
+
