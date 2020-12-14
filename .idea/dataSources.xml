@@ -13,5 +13,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\Max\Desktop\ISM\db.sqlite3</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="db [3]" uuid="e0020787-b97e-43f3-bbef-c1a81afd853f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Max\Desktop\FERTIG\db.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>

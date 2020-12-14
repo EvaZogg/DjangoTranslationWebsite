@@ -6,12 +6,34 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
+    <style>.footer{
+        background-color: #027b76;
+        position: relative;
+        height: 100px;
+        margin-top: -70px;
+        clear: both;
+    }
+    </style>
+
+    <style>.content{
+        overflow: auto;
+        padding-bottom: 100px;
+        background-color: white;
+    }
+    </style>
+
+    <style>.container{
+        min-height: 100%;
+        background-color: white;
+    }
+    </style>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #FFFFFF;">
       <a class="navbar-brand" href="/">
         {% load static %}
-        <img src="{% static './Translation Service Logo.png' %}" alt="Logo" style="width:200px;">
+        <img src="{% static './Logo.png' %}" alt="Logo" style="width:200px;">
       </a>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
@@ -42,6 +64,7 @@
         </ul>
       </div>
     </nav>
+    <main>
     <div id='container'>
         <div id='content'>
             <p>
@@ -50,10 +73,11 @@
             </p>
         </div>
     </div>
-
-    <footer id='footer'>
-
-    </footer>
+    </main>
+    <div class='footer'>
+        &copy; 2020, Yenning, <br>
+        Translation Service
+    </div>
 
 </body>
-</html>ö
+</html>
