@@ -35,3 +35,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#in order to include the staic pictures by using the pillow framework

@@ -1,14 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Base Tmeplate shown on every subpage -->
 <html lang="en">
-<head>
+<head> <!-- head contains all the links, styling etc. styling could be also put into a seperate CSS file -->
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- style for the nav bar from bootstrap -->
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- needed for the social Media buttons -->
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-
+    <!-- styling of all the classes-->
     <style>.footer{
         background-color: #027b76;
         position: relative;
@@ -98,13 +96,12 @@
     }
     </style>
 
-
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #orange;">
       <a class="navbar-brand" href="/">
         {% load static %}
-        <img src="{% static './Logo.png' %}" alt="Logo" style="width:200px;">
+        <img src="{% static './Logo.png' %}" alt="Logo" style="width:200px;"> <!-- logo shown in the navbar -->
       </a>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
@@ -136,7 +133,7 @@
       </div>
     </nav>
     <main>
-    <div class='container'>
+    <div class='container'> <!-- class which pushes the footer down, otherwise the footer would move up when there is no content -->
         <div class='content'>
             <p>
                 {% block content %} {# Tag, which is replaced with content #}
@@ -144,20 +141,21 @@
             </p>
         </div>
     </div>
-    </main>
+    </main> <!-- footer devided into a footer class which includes the Footer.bottom and footer.content. Footer content
+     contains the 3 sections about, link and form -->
     <div class='footer'>
         <div class="footer-content">
             <div class="footer-section-about">
                 <h5> <span>Translation</span> Service</h5>
                 <p>We will be happy to provide you with a quote for the translation of your text within 24 hours.
                 For this purpose please use the contact form.</p>
-                <div class="social">
+                <div class="social"> <!-- the social media logo TODO Profiles must be connected -->
                     <a href='#'><i class='fab fa-facebook'></i>></a>
                     <a href='#'><i class='fab fa-instagram'></i>></a>
                     <a href='#'><i class='fab fa-twitter'></i>></a>
                 </div>
             </div>
-            <div class="footer-section-link">
+            <div class="footer-section-link"> <!-- links to the subpages -->
                 <h5>Quick Link</h5>
                 <ul>
                 <a href="/home">
