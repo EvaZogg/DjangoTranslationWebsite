@@ -1,28 +1,18 @@
 """here a form is beeing created for the user to make comments on the blogposts
-the form is quite similar to a model but there is no argument"""
+The commen shall be less or 250 characters, in the blox it will show that the input is restricted to 250 characters."""
 from django import forms
 from .models import blog
 
 class comment(forms.ModelForm):
     Comment = forms.CharField(max_length=250,
-                              label="Ihr Kommentar",
-                              widget=forms.TextInput(attrs={'style': 'width:800px', 'placeholder':'max. 250 Zeichen'})) #widget as a HTML representation of Input Field
+                              label="your comment",
+                              widget=forms.TextInput(attrs={'style': 'width:800px', 'placeholder':'max. 250 characters'})) #widget as a HTML representation of Input Field
 
 
 
-    class Meta:
+    class Meta: #further options
         model=blog
         fields=['Comment']
 
 
 
-"""class blogentry(forms.Form):
-    Comment=forms.CharField(
-        widget=forms.Textarea(attrs={
-            'placeholder':'Sie können Ihren Kommentar hier hinterlassen',
-            'rows':10,
-            'cols':70,
-        }
-        ))
-"""
-"""I still need to adjust the attributes, because for some reason it does not adjust the textfield to 10 and 70"""

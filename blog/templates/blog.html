@@ -1,26 +1,26 @@
-{% extends "base.html" %}
+{% extends "base.html" %} <!-- Content is inserted in the the base template -->
 <title>Blog</title>
     {% block content %}
         <h1>{{ Title }}</h1>
         <br>
         <div class="content">
-            <div class="row row-cols-1 row-cols-md-1">
+            <div class="row row-cols-1 row-cols-md-1"> <!-- cards from bootstrap -->
 
-            {%for obj in blogdata%}
+            {%for obj in blogdata%}  <!-- loops over blog objects to display all Blogs -->
 
                 <div class="col mb-4" style="max-width: 900px;">
                     <div class
 
                         <div class="card-body">
-                            <h4 class="card-title">{{ obj.title }}</h4>
+                            <h4 class="card-title">{{ obj.title }}</h4> <!-- displays Title -->
 
-                            <img src="{{ obj.Image.url }}" alt="{{ text }}" width="500px">
+                            <img src="{{ obj.Image.url }}" alt="{{ text }}" width="500px"> <!-- displays image -->
                             <br>
-                            <p> {{ obj.Blogtext}} <br>
-                                {{ obj.Blogtext}} <br> <br>{{ obj.Date }} <br><br> Kommentar: <em><br>{{ obj.Comment }} </em>
-                                <form action="/blog/" method="post" >
+                            <p> {{ obj.Blogtext}} <br> <!-- displays Text -->
+                                <br>{{ obj.Date }} <br><br> Comment: <em><br>{{ obj.Comment }} </em> <!-- displays Date, Comment -->
+                                <form action="/blog/" method="post" > <!-- where the data shall be send after hitting the Button -->
 
-                                {% csrf_token %}
+                                {% csrf_token %} <!-- Cross-site request forgery token -->
                                 {{ form }}
                                 <input type="hidden" name="title" value="{{ obj.title }}">
                                 <input type="hidden" name="date" value="{{ obj.Date }}">
@@ -33,17 +33,8 @@
                     </div>
                 </div>
             </div>
-
-            {% include "createcomment_view.html" %}
-            <a href="{{ createcomment_view.html }}">{{ title }}</a>
-
-
         </div>
-
-
-    <br><br>
+    <br><br><br> <!-- extra space at the bottom -->
         {% endfor %}
-
-
     {% endblock %}
 

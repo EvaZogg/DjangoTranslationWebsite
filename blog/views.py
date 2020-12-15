@@ -1,73 +1,46 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.generic import View, TemplateView
-from .models import blog  # benötigtes Model importieren
+from .models import blog
 from .forms import comment
 from django import template
 
 register = template.Library()
 
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-
-# The following was just a test
-# def blog_view(httprequest, *args):
-# test_dict = {
-# "name" : "max",
-# "testlist" : ["this", "is", "a", "test", "blogpost"],
-# }
-# return render(httprequest, 'blog.html', test_dict)
-
 # Create your views here.
-def blog_view(httprequest, *args, **kwargs):  # create function called blog_view/ args beacuse of variable Nr. auf Parameters passed/ **kwargs because of unknown amount of keyword Arguments
-    blogdata = blog.objects.all()  # Saves objects from DB in Variable blogdata which is called in Template
+"""function which acesses the Blogpost object from the Database passes it in the conext where a Title and the user 
+Input from the form is added. If a user makes a Comment the createcomment function is called.
+The context is rendert."""
+def blog_view(httprequest, *args, **kwargs): #  create function
+    blogdata = blog.objects.all()  # Saves objects from DB in Variable blogdata which is called in blog.html
 
-    context = {
-        "blogdata": blogdata,  # Dictionary beeing created with the name blogdata
-        "Title": "Blogposts related to technical Translation",
-        'form': comment()
-
+    context = { #the conext dictionary is created
+        "blogdata": blogdata,  # key:blogdata and value blogdata
+        "Title": "Blogposts related to technical Translation", #key: Title and value Blogpost related...
+        'form': comment() #key: form and value is the user comment
     }
 
-    if httprequest.method == "POST":
-        createcomment(httprequest)
-        #return render(httprequest, "blog.html", context)
+    if httprequest.method == "POST": #user is creating a POST request
+        createcomment(httprequest) #createcomment is called
+    return render(httprequest, "blog.html", context) #and Page is rendert again so the comment gets shown
 
-
-    return render(httprequest, "blog.html", context)
-
-
-def createcomment(request):
+"""createcomment is beeing executed if the used decides to make a comment on a blogpost. The comment is assigned to 
+the correct object by title. If user entry is valid, it is saved in the Database using the form. Otherwise the comment
+will not be saved and the form will be shown again. In the End the Blog is rendet again the the user can see his 
+comment"""
+def createcomment(request): #TODO create a seperate data for Comment so comment doesnt get overwriten
 
     title = request.POST["title"]
-    #date = request.POST["date"]
-    obj = blog.objects.get(title=title) #which specific object shall be opened
+    #date = request.POST["date"] #a second layer in case there would be two blogpost with the same title
+    obj = blog.objects.get(title=title) #The comment is assigned to the correct object b its title
     my_form = comment(request.POST, instance=obj)
-    #print(my_form)#opens the instance of the object
 
-    if my_form.is_valid():
-        my_form.save()
+    if my_form.is_valid(): #validation
+        my_form.save() #save comment with the correct object
         my_form = comment()
 
-    else:
+    else: #if previous conditions dont apply
         my_form = comment()
-    context = {
+    context = { #context will show the form
         "form" : my_form,
     }
-    return render(request, "blog.html", context)
-
-"""@register.inclusion_tag("blog.html")
-def createcomment(request):
-    x=1
-    obj = blog.objects.get(id=x)
-    my_form = blogentry(request.POST or None, instance=obj)
-    if my_form.is_valid():
-        my_form.save()
-        my_form=blogentry()
-
-    context = {
-        "form" : my_form
-    }
-    #return render(request, "createcomment_view.html", context)
-    return {"hallo":x}"""
+    return render(request, "blog.html", context) #context is rendered

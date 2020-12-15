@@ -1,9 +1,9 @@
 from django.db import models
-from django.views.generic import View   #wird für view die auf Klasses beruhen benötigt
 import datetime
 
 
 # Create your models here.
+"""the model for the Blogojects is created"""
 class blog(models.Model):
     title=models.CharField(max_length=200)
     Blogtext=models.TextField()
