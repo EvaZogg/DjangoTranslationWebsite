@@ -15,7 +15,7 @@ def blog_view(httprequest, *args, **kwargs): #  create function
 
     context = { #the conext dictionary is created
         "blogdata": blogdata,  # key:blogdata and value blogdata
-        "Title": "Blogposts related to technical Translation", #key: Title and value Blogpost related...
+        "Title": "Blogposts about technical Translation", #key: Title and value Blogpost related...
         'form': comment() #key: form and value is the user comment
     }
 

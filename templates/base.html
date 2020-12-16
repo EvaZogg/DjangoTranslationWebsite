@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- needed for the social Media buttons -->
 
     <!-- styling of all the classes-->
+    <!-- footer container is relative so its moving if the pages content chnages-->
     <style>.footer{
         background-color: #027b76;
         position: relative;
@@ -30,12 +31,10 @@
     }
     </style>
 
-    <style>.footer-content{
-        border: 1px;
-        height: 150px;
-        display: flex;
-
-
+<style>.footer-content{
+    border: 1px;
+    height: 170px;
+    display: flex;
     }
     </style>
 
@@ -72,12 +71,13 @@
         overflow: auto;
         padding-bottom: 100px;
         background-color: white;
+        width: 800px;
     }
     </style>
 
     <style>.container{
+        position: relative;
         min-height: 100%;
-        background-color: white;
     }
     </style>
 
@@ -133,6 +133,7 @@
       </div>
     </nav>
     <main>
+
     <div class='container'> <!-- class which pushes the footer down, otherwise the footer would move up when there is no content -->
         <div class='content'>
             <p>
@@ -141,6 +142,7 @@
             </p>
         </div>
     </div>
+</body>
     </main> <!-- footer devided into a footer class which includes the Footer.bottom and footer.content. Footer content
      contains the 3 sections about, link and form -->
     <div class='footer'>
@@ -187,6 +189,6 @@
         </div>
     </div>
 
-</body>
+
 </html>
 

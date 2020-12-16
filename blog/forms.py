@@ -6,7 +6,7 @@ from .models import blog
 class comment(forms.ModelForm):
     Comment = forms.CharField(max_length=250,
                               label="your comment",
-                              widget=forms.TextInput(attrs={'style': 'width:800px', 'placeholder':'max. 250 characters'})) #widget as a HTML representation of Input Field
+                              widget=forms.TextInput(attrs={'style': 'width:600px', 'placeholder':'max. 250 characters'})) #widget as a HTML representation of Input Field
 
 
 

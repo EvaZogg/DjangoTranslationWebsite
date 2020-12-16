@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
-
+<head>
+    <style>.references{
+        position: center;
+    }
+    </style>
+</head>
 <title>Home</title>
 {% block container %}
     {% block content %}
@@ -9,18 +14,30 @@
 I have been working for 5 years as a translator of Chinese and German documents. The focus of my work is on translating
 technical documents. <br> Here my focus is on translating technical manuals and documents dealing with product
 liability. <br> In addition to translation services, I offer legal services in cooperation with my partners for
-the translation of demanding documents.
-<br><br>
+the translation of technical documents.
+<br><br><br>
 <h4>My Profile</h4>
         {% load static %}
         <img src="{% static './Thispersondoesntexist.jpg' %}" alt="Logo" style="width:200px;"> <!-- logo of a fictional person -->
-        <h6>
-        <ul class="Profile list-group-flush">
-        <li class="Profile-item">Study of German and the Chinese language</li>
-        <li class="Profile-item">Chinese native speaker</li>
-        <li class="Profile-item">Additional training: technical terminology</li>
-        <li class="Profile-item">Additional education: comparative law </li>
-        </h6>
+        <br><br><br>
+        <h4>Education</h4>
+        Bachelors degree in "Germanistic" <br>
+        Masters degree in "Translation Secience" <br>
+        IHK certified technical translator <br>
+        excenllence cluster in technical translation <br> <br><br>
+
+        <h4>Reference Projects</h4>
+        <div class="references">
+            <div class="row row-cols-2 row-cols-md-3">
+            <img src="{% static './Siemens.png' %}" alt="Logo" style="height:150px; margin-top: 20px">
+            <img src="{% static './Tencent.png' %}" alt="Logo" style="height:200px;">
+            <img src="{% static './Bosch.png' %}" alt="Logo" style="height:150px;margin-top: 20px">
+            </div>
+        </div>
+
+
+
+
 </ul>
 </ul>
 
